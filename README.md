@@ -27,9 +27,9 @@ This is a Flutter project created as a **showcase** of my skills in modern Flutt
 - Responsive Layouts  
 - Animations (Implicit & Explicit)  
 
-## Screenshots / GIFs 📸
+<!-- ## Screenshots / GIFs 📸
 
-*(Add screenshots or GIFs of your UI here once updated)*  
+*(Add screenshots or GIFs of your UI here once updated)*   -->
 
 ## Notes 📝
 
