@@ -1,16 +1,39 @@
-# dragon_ball_app
+# Flutter Showcase Project 🚀
 
-A new Flutter project.
+> **Status:** Under Construction  
 
-## Getting Started
+This is a Flutter project created as a **showcase** of my skills in modern Flutter development. This project is still under active development, and UI updates will be added by the end of this week.  
 
-This project is a starting point for a Flutter application.
+## Features Implemented ✅
 
-A few resources to get you started if this is your first Flutter project:
+- **Feature-First Folder Structure** – Organized code for scalability and maintainability.  
+- **DDD (Domain-Driven Design) Pattern** – Clear separation of domain, application, and presentation layers.  
+- **Riverpod State Management** – Efficient state handling across the app.  
+- **Animations** – Used both **implicit** and **explicit** animations for smooth UI effects.  
+- **Responsive Design** – UI adapts to different screen sizes.  
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Project Status ⚙️
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- Currently **under construction**.  
+- UI updates coming soon (end of the week).  
+- Additional features and improvements will be added as the project progresses.  
+
+## Tech Stack 💻
+
+- Flutter  
+- Dart  
+- Riverpod  
+- DDD Architecture  
+- Responsive Layouts  
+- Animations (Implicit & Explicit)  
+
+## Screenshots / GIFs 📸
+
+*(Add screenshots or GIFs of your UI here once updated)*  
+
+## Notes 📝
+
+- This project is primarily for **showcase purposes**.  
+- Work in progress — expect more features and UI improvements soon!  
+
+
