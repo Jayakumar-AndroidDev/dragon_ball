@@ -1,9 +1,9 @@
-import 'package:dragon_ball_app/core/app_color/app_colors.dart';
 import 'package:dragon_ball_app/core/util/util.dart';
 import 'package:dragon_ball_app/feature/get_character_detail/presentation/provider/get_character_provider.dart';
 import 'package:dragon_ball_app/feature/get_character_detail/presentation/widget/character_basic_detail_widget.dart';
 import 'package:dragon_ball_app/feature/get_character_detail/presentation/widget/character_description_widget.dart';
 import 'package:dragon_ball_app/feature/get_character_detail/presentation/widget/character_transformation_list_widget.dart';
+import 'package:dragon_ball_app/shared_widgets/loading_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -19,7 +19,7 @@ class _CharacterDetailPageState extends State<CharacterDetailPage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.bgColor,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: SingleChildScrollView(
         child: SafeArea(
           child: Consumer(
@@ -49,6 +49,7 @@ class _CharacterDetailPageState extends State<CharacterDetailPage>
                         ),
                       ),
                       Util.heightSpace(15),
+                      if((data.transformations ?? []).isNotEmpty)
                       Align(
                         alignment: Alignment.centerLeft,
                         child: Padding(
@@ -71,7 +72,7 @@ class _CharacterDetailPageState extends State<CharacterDetailPage>
                 error: (error, stackTrace) {
                   return Text(error.toString());
                 },
-                loading: () => CircularProgressIndicator(),
+                loading: () => SizedBox(height: Util.heightPercentageSpace(context, height: 1.0),child: Center(child: LoadingWidget(),)),
               );
             },
           ),

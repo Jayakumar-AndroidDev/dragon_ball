@@ -2,9 +2,11 @@ import 'package:dragon_ball_app/feature/get_character_detail/presentation/page/c
 import 'package:dragon_ball_app/feature/home/presentation/widgets/drawer/drawer_widget.dart';
 import 'package:dragon_ball_app/feature/home/presentation/page/home_page.dart';
 import 'package:dragon_ball_app/feature/on_boarding/presentation/page/on_boarding_page.dart';
+import 'package:dragon_ball_app/feature/splash/splash_page.dart';
 import 'package:flutter/material.dart';
 
 class AppRoute {
+  static const String splashPage = '/splashPage';
   static const String onboardPage = '/onBoardPage';
   static const String homePage = '/homePage';
   static const String drawerPage = '/drawerPage';
@@ -12,6 +14,10 @@ class AppRoute {
 
   static Route<dynamic>? onGenerateRoute(RouteSettings setting) {
     switch (setting.name) {
+      case splashPage:
+        {
+          return MaterialPageRoute(builder: (context) => SplashPage());
+        }
       case onboardPage:
         {
           return MaterialPageRoute(builder: (context) => OnBoardingPage());

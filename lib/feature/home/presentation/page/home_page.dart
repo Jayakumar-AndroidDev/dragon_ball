@@ -1,7 +1,7 @@
-import 'package:dragon_ball_app/core/app_color/app_colors.dart';
 import 'package:dragon_ball_app/core/app_route/app_route.dart';
 import 'package:dragon_ball_app/feature/home/presentation/provider/get_characters_provider.dart';
 import 'package:dragon_ball_app/feature/home/presentation/widgets/characters/get_characters_widget.dart';
+import 'package:dragon_ball_app/shared_widgets/loading_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -35,7 +35,7 @@ class _HomePageState extends State<HomePage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.bgColor,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: Stack(
         fit: StackFit.expand,
         clipBehavior: Clip.none,
@@ -100,7 +100,7 @@ class _HomePageState extends State<HomePage>
                   );
                 },
                 error: (error, stackTrace) => Text(error.toString()),
-                loading: () => CircularProgressIndicator(),
+                loading: () => Center(child: LoadingWidget()),
               );
             },
           ),

@@ -31,6 +31,8 @@ class _CharacterTransformationListWidgetState extends State<CharacterTransformat
 
   @override
   Widget build(BuildContext context) {
+
+  if(widget.transformation.isNotEmpty){
     return SizedBox(
                   height: 180,
                   child: AnimatedList(
@@ -68,7 +70,7 @@ class _CharacterTransformationListWidgetState extends State<CharacterTransformat
                       ),
                     ),
                   ),
-                );
+                );} return const SizedBox();
   }
 }
 

@@ -117,7 +117,7 @@ class _CharacterBasicDetailWidgetState extends State<CharacterBasicDetailWidget>
             height: Util.heightPercentageSpace(context, height: 0.5),
             child: Image.network(
               widget.image,
-              fit: BoxFit.cover,
+              fit: BoxFit.contain,
             ),
           ),
         ),
