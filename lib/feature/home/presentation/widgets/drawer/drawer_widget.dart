@@ -114,7 +114,7 @@ class _DrawerPageState extends ConsumerState<DrawerPage> with TickerProviderStat
                         if (item == 'Dark Theme') ...[
                           CustomSwitchWidget(
                             onChange: (isOn) {
-                                ref.read(themeProvider.notifier).changeTheme();
+                                ref.read(themeProvider.notifier).changeTheme(isOn);
                             },
                           ),
                         ],

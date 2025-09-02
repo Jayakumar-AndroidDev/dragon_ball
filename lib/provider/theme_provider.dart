@@ -6,7 +6,7 @@ class ThemeProvider extends Notifier<bool> {
     return true;
   }
 
-  void changeTheme() => state = !state;
+  void changeTheme(bool isLightTheme) => state = !state;
 }
 
 final themeProvider = NotifierProvider<ThemeProvider, bool>(

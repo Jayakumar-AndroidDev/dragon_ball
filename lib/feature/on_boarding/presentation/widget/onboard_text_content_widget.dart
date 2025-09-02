@@ -101,6 +101,8 @@ class _OnboardTextContentWidgetState extends State<OnboardTextContentWidget>
   @override
   void dispose() {
     _fadeAnimationController.dispose();
+    _titleSlideController.dispose();
+    _fadeAnimationController.dispose();
     super.dispose();
   }
 }

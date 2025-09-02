@@ -1,4 +1,5 @@
 import 'package:dragon_ball_app/core/app_route/app_route.dart';
+import 'package:dragon_ball_app/core/local_storage/shared_pref.dart';
 import 'package:flutter/material.dart';
 
 class GetStartBtnWidget extends StatelessWidget {
@@ -8,6 +9,7 @@ class GetStartBtnWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
+        SharedPref.setIsFirstUser(false);
         Navigator.of(context).pushReplacementNamed(AppRoute.homePage);
       },
       child: Container(

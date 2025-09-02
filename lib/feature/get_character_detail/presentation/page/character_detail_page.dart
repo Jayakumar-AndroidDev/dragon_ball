@@ -3,6 +3,7 @@ import 'package:dragon_ball_app/feature/get_character_detail/presentation/provid
 import 'package:dragon_ball_app/feature/get_character_detail/presentation/widget/character_basic_detail_widget.dart';
 import 'package:dragon_ball_app/feature/get_character_detail/presentation/widget/character_description_widget.dart';
 import 'package:dragon_ball_app/feature/get_character_detail/presentation/widget/character_transformation_list_widget.dart';
+import 'package:dragon_ball_app/shared_widgets/internet_fail_page.dart';
 import 'package:dragon_ball_app/shared_widgets/loading_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -18,9 +19,14 @@ class _CharacterDetailPageState extends State<CharacterDetailPage>
     with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-      body: SingleChildScrollView(
+    return InternetFailPage(
+      onSuccess: () {
+        
+      },
+      onFailure: () {
+        
+      },
+      childWidget: SingleChildScrollView(
         child: SafeArea(
           child: Consumer(
             builder: (context, ref, child) {

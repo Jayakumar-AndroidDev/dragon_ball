@@ -1,10 +1,15 @@
 import 'package:dragon_ball_app/core/app_route/app_route.dart';
 import 'package:dragon_ball_app/core/app_theme/app_theme.dart';
+import 'package:dragon_ball_app/core/local_storage/shared_pref.dart';
 import 'package:dragon_ball_app/provider/theme_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-void main() {
+void main() async {
+
+  WidgetsFlutterBinding.ensureInitialized();
+  await SharedPref.init();
+
   runApp(ProviderScope(child: MyApp()));
 }
 

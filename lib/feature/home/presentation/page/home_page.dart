@@ -1,6 +1,7 @@
 import 'package:dragon_ball_app/core/app_route/app_route.dart';
 import 'package:dragon_ball_app/feature/home/presentation/provider/get_characters_provider.dart';
 import 'package:dragon_ball_app/feature/home/presentation/widgets/characters/get_characters_widget.dart';
+import 'package:dragon_ball_app/shared_widgets/internet_fail_page.dart';
 import 'package:dragon_ball_app/shared_widgets/loading_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -34,9 +35,15 @@ class _HomePageState extends State<HomePage>
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-      body: Stack(
+    return InternetFailPage(
+        
+      onFailure: () {
+        
+      },
+      onSuccess: () {
+        
+      },
+      childWidget: Stack(
         fit: StackFit.expand,
         clipBehavior: Clip.none,
         children: [

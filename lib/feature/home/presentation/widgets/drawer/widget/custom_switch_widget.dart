@@ -1,4 +1,5 @@
 import 'package:dragon_ball_app/core/app_color/app_colors.dart';
+import 'package:dragon_ball_app/core/local_storage/shared_pref.dart';
 import 'package:flutter/material.dart';
 
 class CustomSwitchWidget extends StatefulWidget {
@@ -14,11 +15,18 @@ class _CustomSwitchWidgetState extends State<CustomSwitchWidget> {
   bool _isOn = false;
 
   @override
+  void initState() {
+    _isOn = SharedPref.getIsLightTheme();
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {
+      onTap: () async {
         setState(() {
           _isOn = !_isOn;
+          SharedPref.setIsLightTheme(_isOn);
           widget.onChange(_isOn);
         });
       },

@@ -1,6 +1,7 @@
 import 'package:dragon_ball_app/feature/on_boarding/presentation/widget/onboard_bg_image_widget.dart';
 import 'package:dragon_ball_app/feature/on_boarding/presentation/widget/onboard_gradient_widget.dart';
 import 'package:dragon_ball_app/feature/on_boarding/presentation/widget/onboard_text_content_widget.dart';
+import 'package:dragon_ball_app/shared_widgets/internet_fail_page.dart';
 import 'package:flutter/material.dart';
 
 class OnBoardingPage extends StatelessWidget {
@@ -8,8 +9,14 @@ class OnBoardingPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Stack(
+    return InternetFailPage(
+      onSuccess: () {
+        
+      },
+      onFailure: () {
+        
+      },
+      childWidget: Stack(
         children: [
           OnBoardBgImageWidget(),
           OnboardGradientWidget(),
