@@ -78,6 +78,7 @@ class _CharacterBasicDetailWidgetState extends State<CharacterBasicDetailWidget>
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           spacing: 13,
           children: [
             SlideTransition(

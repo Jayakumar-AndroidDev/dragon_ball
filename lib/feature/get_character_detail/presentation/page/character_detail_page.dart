@@ -1,4 +1,6 @@
+import 'package:dragon_ball_app/core/app_color/app_colors.dart';
 import 'package:dragon_ball_app/core/util/util.dart';
+import 'package:dragon_ball_app/extension/theme_state_extension.dart';
 import 'package:dragon_ball_app/feature/get_character_detail/presentation/provider/get_character_provider.dart';
 import 'package:dragon_ball_app/feature/get_character_detail/presentation/widget/character_basic_detail_widget.dart';
 import 'package:dragon_ball_app/feature/get_character_detail/presentation/widget/character_description_widget.dart';
@@ -7,6 +9,7 @@ import 'package:dragon_ball_app/shared_widgets/internet_fail_page.dart';
 import 'package:dragon_ball_app/shared_widgets/loading_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_svg/svg.dart';
 
 class CharacterDetailPage extends StatefulWidget {
   const CharacterDetailPage({super.key,required this.characterId});
@@ -39,7 +42,26 @@ class _CharacterDetailPageState extends State<CharacterDetailPage>
                       Padding(
                         padding: EdgeInsetsGeometry.only(left: 20, right: 20),
                         child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
+                            Util.heightSpace(10),
+                            GestureDetector(
+                              onTap: () {
+                                Navigator.of(context).pop();
+                              },
+                              child: Container(
+                                padding: EdgeInsets.all(5),
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(5),
+                                  border: Border.all(
+                                    width: 1,
+                                    color: !context.isLightThem ? Colors.grey.shade400 : AppColors.whiteColor,
+                                  ),
+                                ),
+                                child: SvgPicture.asset('assets/icon/icon_back.svg',width: 15,height: 15,color: !context.isLightThem ? Colors.grey.shade400 : AppColors.whiteColor),
+                              ),
+                            ),
+
                             CharacterBasicDetailWidget(
                               name: data.name ??'',
                               image: data.image ?? '',
