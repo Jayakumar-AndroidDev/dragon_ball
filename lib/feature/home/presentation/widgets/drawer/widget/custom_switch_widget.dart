@@ -16,7 +16,7 @@ class _CustomSwitchWidgetState extends State<CustomSwitchWidget> {
 
   @override
   void initState() {
-    _isOn = SharedPref.getIsLightTheme();
+    _isOn = SharedPref.getIsDarkTheme();
     super.initState();
   }
 
@@ -26,7 +26,7 @@ class _CustomSwitchWidgetState extends State<CustomSwitchWidget> {
       onTap: () async {
         setState(() {
           _isOn = !_isOn;
-          SharedPref.setIsLightTheme(_isOn);
+          SharedPref.setIsDarkTheme(_isOn);
           widget.onChange(_isOn);
         });
       },

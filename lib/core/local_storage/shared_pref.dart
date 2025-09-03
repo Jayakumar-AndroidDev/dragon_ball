@@ -18,12 +18,12 @@ class SharedPref {
     return _prefs?.getBool("isFirstTime") ?? true;
   }
 
-    static Future<void> setIsLightTheme(bool isFirstTime) async {
-    await _prefs?.setBool("isLightTheme", isFirstTime);
+    static Future<void> setIsDarkTheme(bool isFirstTime) async {
+    await _prefs?.setBool("isDarktTheme", isFirstTime);
   }
 
   
-  static bool getIsLightTheme() {
-    return _prefs?.getBool("isLightTheme") ?? true;
+  static bool getIsDarkTheme() {
+    return _prefs?.getBool("isDarktTheme") ?? false;
   }
 }
