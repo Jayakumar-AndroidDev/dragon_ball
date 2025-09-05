@@ -1,8 +1,8 @@
-import 'package:dragon_ball_app/feature/get_character_detail/presentation/page/character_detail_page.dart';
-import 'package:dragon_ball_app/feature/home/presentation/widgets/drawer/drawer_widget.dart';
-import 'package:dragon_ball_app/feature/home/presentation/page/home_page.dart';
-import 'package:dragon_ball_app/feature/on_boarding/presentation/page/on_boarding_page.dart';
-import 'package:dragon_ball_app/feature/splash/splash_page.dart';
+import 'package:dragon_ball_app/features/get_character_detail/presentation/page/character_detail_page.dart';
+import 'package:dragon_ball_app/features/home/presentation/widgets/drawer/drawer_widget.dart';
+import 'package:dragon_ball_app/features/home/presentation/page/home_page.dart';
+import 'package:dragon_ball_app/features/on_boarding/presentation/page/on_boarding_page.dart';
+import 'package:dragon_ball_app/features/splash/splash_page.dart';
 import 'package:flutter/material.dart';
 
 class AppRoute {
