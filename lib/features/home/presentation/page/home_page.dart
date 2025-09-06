@@ -99,9 +99,12 @@ class _HomePageState extends State<HomePage>
           Consumer(
             builder: (context, ref, child) {
               final response = ref.watch(getCharactersProvider);
-
+            
              return response.when(
                 data: (data) {
+                  if(data == null) {
+                    return Text("data is null");
+                  }
                   return GetCharactersWidget(
                     listOfCharacter: data,
                   );

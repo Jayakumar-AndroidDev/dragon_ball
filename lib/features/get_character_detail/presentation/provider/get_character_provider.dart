@@ -26,16 +26,4 @@ class GetCharacterProvider extends AsyncNotifier<CharacterEntity?> {
 
 final getCharacterProvider = AsyncNotifierProvider<GetCharacterProvider,CharacterEntity?>(GetCharacterProvider.new);
 
-// final getCharacterProvider = FutureProvider.family<CharacterEntity, String>((
-//   ref,
-//   arg,
-// ) async {
-//   final getCharacterUsecase = GetCharacterUsecase(
-//     getCharacterRepository: GetCharacterRepositoryImpl(
-//       getCharacterApi: GetCharacterApi(ref: ref),
-//     ),
-//   );
 
-//   final getCharacter = await getCharacterUsecase.getCharacter(arg);
-//   return getCharacter;
-// });
