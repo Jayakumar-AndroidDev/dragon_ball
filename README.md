@@ -1,39 +1,51 @@
-# Flutter Showcase Project 🚀
+# 🚀 Flutter Showcase Project  
 
-> **Status:** Under Construction  
+A **Flutter demo project** showcasing clean architecture, state management with Riverpod, animations, and modern app practices.  
 
-This is a Flutter project created as a **showcase** of my skills in modern Flutter development. This project is still under active development, and UI updates will be added by the end of this week.  
+---
 
-## Features Implemented ✅
+## 📸 Demo  
 
-- **Feature-First Folder Structure** – Organized code for scalability and maintainability.  
-- **DDD (Domain-Driven Design) Pattern** – Clear separation of domain, application, and presentation layers.  
-- **Riverpod State Management** – Efficient state handling across the app.  
-- **Animations** – Used both **implicit** and **explicit** animations for smooth UI effects.  
-- **Responsive Design** – UI adapts to different screen sizes.  
+Here’s a quick demo of the app in action:  
 
-## Project Status ⚙️
+![App Demo](assets/app_demo_gif/dragon_ball_demo.gif)  
 
-- Currently **under construction**.  
-- UI updates coming soon (end of the week).  
-- Additional features and improvements will be added as the project progresses.  
+---
 
-## Tech Stack 💻
+## ✨ Features Implemented  
 
-- Flutter  
-- Dart  
-- Riverpod  
-- DDD Architecture  
-- Responsive Layouts  
-- Animations (Implicit & Explicit)  
+- **Riverpod (State Management):**  
+  Uses `riverpod` for reactive and scalable state management.  
 
-<!-- ## Screenshots / GIFs 📸
+- **Feature-First + Domain Driven Design (DDD):**  
+  Organized using a feature-first folder structure with DDD principles.  
 
-*(Add screenshots or GIFs of your UI here once updated)*   -->
+- **Animations (Implicit & Explicit):**  
+  Demonstrates smooth UI effects with both implicit and explicit animations.  
 
-## Notes 📝
+- **Theme Toggle (Light/Dark Mode):**  
+  Built-in theme switcher to enable/disable dark mode.  
 
-- This project is primarily for **showcase purposes**.  
-- Work in progress — expect more features and UI improvements soon!  
+- **Pagination (In Progress):**  
+  Supports lazy loading / infinite scrolling with progress indicators.  
 
+- **Network State Handling:**  
+  Unified handling for loading, success, empty, and error UI states.  
+
+---
+
+## 🛠️ Planned / Upcoming Features  
+
+- **Offline Cache (Coming Soon):**  
+  Store and access data offline for better reliability.  
+
+- **API Error Handling (Coming Soon):**  
+  Enhanced error messages and retry options for network failures.  
+
+---
+
+## 📂 Project Structure (Feature-First + DDD)  
+
+The project follows a **Feature-First + Domain Driven Design (DDD)** approach.  
+This makes the app modular, testable, and scalable.  
 
