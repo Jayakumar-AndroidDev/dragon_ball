@@ -7,9 +7,9 @@ class GetCharactersApi {
   final Ref ref;
   GetCharactersApi({required this.ref});
 
-  Future<CharactersModel> getCharacters() async {
+  Future<CharactersModel> getCharacters(String pageNumber) async {
     ApiClient apiClient = ref.read(apiClientProvider);
-   final response = await apiClient.get("Characters");
+   final response = await apiClient.get("characters?page=$pageNumber");
    return CharactersModel.fromJson(response);
   }
 }

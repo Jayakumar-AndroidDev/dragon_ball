@@ -6,8 +6,8 @@ class CharacterUsecase {
 
   CharacterUsecase({required this.charactersRepository});
 
-  Future<List<CharactersEntity>> getCharacters() async {
-    final characters = await charactersRepository.getCharaters();
+  Future<List<CharactersEntity>> getCharacters(String pageNumber) async {
+    final characters = await charactersRepository.getCharaters(pageNumber);
     return characters;
   }
 }

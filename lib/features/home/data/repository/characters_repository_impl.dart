@@ -8,8 +8,10 @@ class CharactersRepositoryImpl extends CharactersRepository {
   CharactersRepositoryImpl({required this.getCharactersApi});
 
   @override
-  Future<List<CharactersEntity>> getCharaters() async {
-      final response = await getCharactersApi.getCharacters();
+  Future<List<CharactersEntity>> getCharaters(String pageNumber) async {
+      final response = await getCharactersApi.getCharacters(
+        pageNumber,
+      );
       return response.toCharactersEntity();
   }
 }

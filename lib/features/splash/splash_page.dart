@@ -62,7 +62,6 @@ class _SplashPageState extends ConsumerState<SplashPage>
 
   @override
   void dispose() {
-    debugPrint('dispose_called!');
     _fadeController.dispose();
     super.dispose();
   }

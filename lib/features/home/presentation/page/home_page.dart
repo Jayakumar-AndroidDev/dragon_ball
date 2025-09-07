@@ -1,4 +1,5 @@
 import 'package:dragon_ball_app/core/app_route/app_route.dart';
+import 'package:dragon_ball_app/features/home/domain/entity/characters_entity.dart';
 import 'package:dragon_ball_app/features/home/presentation/provider/get_characters_provider.dart';
 import 'package:dragon_ball_app/features/home/presentation/widgets/characters/get_characters_widget.dart';
 import 'package:dragon_ball_app/shared_widgets/internet_fail_page.dart';
@@ -19,8 +20,11 @@ class _HomePageState extends State<HomePage>
   late AnimationController _scaleAnimationController;
   late Animation<double> _scaleAnimationValue;
 
+  late List<CharactersEntity> listOfCharacters;
+
   @override
   void initState() {
+    listOfCharacters = [];
     _scaleAnimationController = AnimationController(
       vsync: this,
       duration: const Duration(seconds: 2),
@@ -36,13 +40,8 @@ class _HomePageState extends State<HomePage>
   @override
   Widget build(BuildContext context) {
     return InternetFailPage(
-        
-      onFailure: () {
-        
-      },
-      onSuccess: () {
-        
-      },
+      onFailure: () {},
+      onSuccess: () {},
       childWidget: Stack(
         fit: StackFit.expand,
         clipBehavior: Clip.none,
@@ -99,17 +98,18 @@ class _HomePageState extends State<HomePage>
           Consumer(
             builder: (context, ref, child) {
               final response = ref.watch(getCharactersProvider);
-            
-             return response.when(
+
+              return response.when(
                 data: (data) {
-                  if(data == null) {
-                    return Text("data is null");
-                  }
+                  
+
                   return GetCharactersWidget(
-                    listOfCharacter: data,
+                    listOfCharacter: data.list,
+                    hasMore: data.hasMore,
                   );
                 },
-                error: (error, stackTrace) => Text(error.toString()),
+                error: (error, stackTrace) =>
+                    Center(child: Text(error.toString())),
                 loading: () => Center(child: LoadingWidget()),
               );
             },

@@ -6,16 +6,27 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class CharacterListItem extends ConsumerWidget {
-  const CharacterListItem({super.key, required this.charactersEntity,});
+  const CharacterListItem({
+    super.key,
+    required this.charactersEntity,
+    required this.listSize,
+    required this.itemIndex,
+  });
 
   final CharactersEntity charactersEntity;
+  final int listSize, itemIndex;
 
   @override
-  Widget build(BuildContext context,WidgetRef ref) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return GestureDetector(
       onTap: () {
-        Navigator.of(context).pushNamed(AppRoute.characterDetailPage,arguments: charactersEntity.id.toString());
-        ref.read(getCharacterProvider.notifier).getCharacterDetail(charactersEntity.id.toString());
+        Navigator.of(context).pushNamed(
+          AppRoute.characterDetailPage,
+          arguments: charactersEntity.id.toString(),
+        );
+        ref
+            .read(getCharacterProvider.notifier)
+            .getCharacterDetail(charactersEntity.id.toString());
       },
       child: Stack(
         children: [
@@ -31,11 +42,11 @@ class CharacterListItem extends ConsumerWidget {
               ),
             ),
           ),
-      
+
           Positioned.fill(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              
+
               children: [
                 Image.network(
                   charactersEntity.image ?? "",
@@ -48,22 +59,28 @@ class CharacterListItem extends ConsumerWidget {
                     context,
                   ).textTheme.titleLarge!.copyWith(fontSize: 16),
                 ),
-                Text(charactersEntity.name, style: Theme.of(context).textTheme.titleMedium),
-             
+                Text(
+                  charactersEntity.name,
+                  style: Theme.of(context).textTheme.titleMedium,
+                ),
+
                 Text(
                   "${charactersEntity.race ?? ""} - ${charactersEntity.gender ?? ""}",
                   style: Theme.of(context).textTheme.titleMedium,
                 ),
-             
+
                 Text(
                   "Base KI:",
                   style: Theme.of(
                     context,
                   ).textTheme.titleLarge!.copyWith(fontSize: 16),
                 ),
-      
-                Text(charactersEntity.ki ?? "", style: Theme.of(context).textTheme.bodySmall),
-             
+
+                Text(
+                  charactersEntity.ki ?? "",
+                  style: Theme.of(context).textTheme.bodySmall,
+                ),
+
                 Text(
                   "Max KI:",
                   style: Theme.of(
@@ -71,18 +88,21 @@ class CharacterListItem extends ConsumerWidget {
                   ).textTheme.titleLarge!.copyWith(fontSize: 16),
                 ),
                 Text(
-                 charactersEntity.maxKi ?? "",
+                  charactersEntity.maxKi ?? "",
                   style: Theme.of(context).textTheme.bodySmall,
                 ),
-                
+
                 Text(
                   "Affiliate:",
                   style: Theme.of(
                     context,
                   ).textTheme.titleLarge!.copyWith(fontSize: 16),
                 ),
-                Text(charactersEntity.affiliation ?? "", style: Theme.of(context).textTheme.bodySmall),
-      
+                Text(
+                  charactersEntity.affiliation ?? "",
+                  style: Theme.of(context).textTheme.bodySmall,
+                ),
+
                 Util.heightSpace(15),
               ],
             ),

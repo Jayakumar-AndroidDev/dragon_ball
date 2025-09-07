@@ -26,8 +26,8 @@ Here’s a quick demo of the app in action:
 - **Theme Toggle (Light/Dark Mode):**  
   Built-in theme switcher to enable/disable dark mode.  
 
-- **Pagination (In Progress):**  
-  Supports lazy loading / infinite scrolling with progress indicators.  
+- **Lazy Pagination (Completed):**  
+  Supports infinite scrolling with smooth progress indicators.  
 
 - **Network State Handling:**  
   Unified handling for loading, success, empty, and error UI states.  
@@ -36,11 +36,11 @@ Here’s a quick demo of the app in action:
 
 ## 🛠️ Planned / Upcoming Features  
 
+- **API Exception Handling (In Progress):**  
+  Robust error handling with retry and error UI for failed network calls.  
+
 - **Offline Cache (Coming Soon):**  
   Store and access data offline for better reliability.  
-
-- **API Error Handling (Coming Soon):**  
-  Enhanced error messages and retry options for network failures.  
 
 ---
 
