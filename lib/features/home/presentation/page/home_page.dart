@@ -1,9 +1,11 @@
 import 'package:dragon_ball_app/core/app_route/app_route.dart';
+import 'package:dragon_ball_app/core/app_text/app_text.dart';
 import 'package:dragon_ball_app/features/home/domain/entity/characters_entity.dart';
 import 'package:dragon_ball_app/features/home/presentation/provider/get_characters_provider.dart';
 import 'package:dragon_ball_app/features/home/presentation/widgets/characters/get_characters_widget.dart';
 import 'package:dragon_ball_app/shared_widgets/internet_fail_page.dart';
 import 'package:dragon_ball_app/shared_widgets/loading_widget.dart';
+import 'package:dragon_ball_app/shared_widgets/network_error_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -101,7 +103,11 @@ class _HomePageState extends State<HomePage>
 
               return response.when(
                 data: (data) {
-                  
+                  if (data.errorMessage != null) {
+                    return Center(child: NetworkErrorWidget(onTap: () {
+                      ref.invalidate(getCharactersProvider);
+                    },errorMessage: data.errorMessage ?? AppText.defaultApiErrorMessage,));
+                  }
 
                   return GetCharactersWidget(
                     listOfCharacter: data.list,
@@ -109,7 +115,9 @@ class _HomePageState extends State<HomePage>
                   );
                 },
                 error: (error, stackTrace) =>
-                    Center(child: Text(error.toString())),
+                    Center(child: NetworkErrorWidget(onTap: () {
+                      ref.invalidate(getCharactersProvider);
+                    })),
                 loading: () => Center(child: LoadingWidget()),
               );
             },

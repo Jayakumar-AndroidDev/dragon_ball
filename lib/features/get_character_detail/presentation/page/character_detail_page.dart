@@ -7,6 +7,7 @@ import 'package:dragon_ball_app/features/get_character_detail/presentation/widge
 import 'package:dragon_ball_app/features/get_character_detail/presentation/widget/character_transformation_list_widget.dart';
 import 'package:dragon_ball_app/shared_widgets/internet_fail_page.dart';
 import 'package:dragon_ball_app/shared_widgets/loading_widget.dart';
+import 'package:dragon_ball_app/shared_widgets/network_error_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
@@ -29,80 +30,84 @@ class _CharacterDetailPageState extends State<CharacterDetailPage>
       onFailure: () {
         
       },
-      childWidget: SingleChildScrollView(
-        child: SafeArea(
-          child: Consumer(
-            builder: (context, ref, child) {
-              final character = ref.watch(getCharacterProvider);
-
-              return character.when(
-                data: (data) {
-                  return Column(
-                    children: [
-                      Padding(
-                        padding: EdgeInsetsGeometry.only(left: 20, right: 20),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Util.heightSpace(10),
-                            GestureDetector(
-                              onTap: () {
-                                Navigator.of(context).pop();
-                              },
-                              child: Container(
-                                padding: EdgeInsets.all(5),
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(5),
-                                  border: Border.all(
-                                    width: 1,
-                                    color: !context.isLightThem ? Colors.grey.shade400 : AppColors.whiteColor,
+      childWidget: Center(
+        child: SingleChildScrollView(
+          child: SafeArea(
+            child: Consumer(
+              builder: (context, ref, child) {
+                final character = ref.watch(getCharacterProvider);
+        
+                return character.when(
+                  data: (data) {
+                    return Column(
+                      children: [
+                        Padding(
+                          padding: EdgeInsetsGeometry.only(left: 20, right: 20),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Util.heightSpace(10),
+                              GestureDetector(
+                                onTap: () {
+                                  Navigator.of(context).pop();
+                                },
+                                child: Container(
+                                  padding: EdgeInsets.all(5),
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(5),
+                                    border: Border.all(
+                                      width: 1,
+                                      color: !context.isLightThem ? Colors.grey.shade400 : AppColors.whiteColor,
+                                    ),
                                   ),
+                                  child: SvgPicture.asset('assets/icon/icon_back.svg',width: 15,height: 15,color: !context.isLightThem ? Colors.grey.shade400 : AppColors.whiteColor),
                                 ),
-                                child: SvgPicture.asset('assets/icon/icon_back.svg',width: 15,height: 15,color: !context.isLightThem ? Colors.grey.shade400 : AppColors.whiteColor),
                               ),
-                            ),
-
-                            CharacterBasicDetailWidget(
-                              name: data?.name ??'-',
-                              image: data?.image ?? '-',
-                              ki: data?.ki ?? '-',
-                              maxKi: data?.maxKi ?? '-',
-                              race: data?.race ?? '-',
-                              gender: data?.gender ?? '-',
-                              planet: data?.originPlanet ?? '-',
-                              affiliation: data?.affiliation ?? '-',
-                            ),
-                            CharacterDescriptionWidget(description: data?.description ?? '-',),
-                          ],
-                        ),
-                      ),
-                      Util.heightSpace(15),
-                      if((data?.transformations ?? []).isNotEmpty)
-                      Align(
-                        alignment: Alignment.centerLeft,
-                        child: Padding(
-                          padding: const EdgeInsets.only(left: 20),
-                          child: Text(
-                            "Transformation",
-                            style: Theme.of(
-                              context,
-                            ).textTheme.titleLarge!.copyWith(fontSize: 13),
+        
+                              CharacterBasicDetailWidget(
+                                name: data?.name ??'-',
+                                image: data?.image ?? '-',
+                                ki: data?.ki ?? '-',
+                                maxKi: data?.maxKi ?? '-',
+                                race: data?.race ?? '-',
+                                gender: data?.gender ?? '-',
+                                planet: data?.originPlanet ?? '-',
+                                affiliation: data?.affiliation ?? '-',
+                              ),
+                              CharacterDescriptionWidget(description: data?.description ?? '-',),
+                            ],
                           ),
                         ),
-                      ),
-                      Util.heightSpace(15),
-                      CharacterTransformationListWidget(
-                        transformation: data?.transformations ?? [],
-                      ),
-                    ],
-                  );
-                },
-                error: (error, stackTrace) {
-                  return Text(error.toString());
-                },
-                loading: () => SizedBox(height: Util.heightPercentageSpace(context, height: 1.0),child: Center(child: LoadingWidget(),)),
-              );
-            },
+                        Util.heightSpace(15),
+                        if((data?.transformations ?? []).isNotEmpty)
+                        Align(
+                          alignment: Alignment.centerLeft,
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 20),
+                            child: Text(
+                              "Transformation",
+                              style: Theme.of(
+                                context,
+                              ).textTheme.titleLarge!.copyWith(fontSize: 13),
+                            ),
+                          ),
+                        ),
+                        Util.heightSpace(15),
+                        CharacterTransformationListWidget(
+                          transformation: data?.transformations ?? [],
+                        ),
+                      ],
+                    );
+                  },
+                  error: (error, stackTrace) {
+                    return Center(child: NetworkErrorWidget(onTap:  () {
+                      ref.read(getCharacterProvider.notifier).getCharacterDetail(widget.characterId);
+                    },errorMessage: error.toString(),));
+                  },
+                  loading: () => SizedBox(height: Util.heightPercentageSpace(context, height: 1.0),child: Center(child: LoadingWidget(),)),
+                );
+              },
+            ),
           ),
         ),
       ),

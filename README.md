@@ -29,15 +29,15 @@ Here’s a quick demo of the app in action:
 - **Lazy Pagination (Completed):**  
   Supports infinite scrolling with smooth progress indicators.  
 
+- **API Exception Handling (Completed):**  
+  Robust error handling with retry and error UI for failed network calls.  
+
 - **Network State Handling:**  
   Unified handling for loading, success, empty, and error UI states.  
 
 ---
 
 ## 🛠️ Planned / Upcoming Features  
-
-- **API Exception Handling (In Progress):**  
-  Robust error handling with retry and error UI for failed network calls.  
 
 - **Offline Cache (Coming Soon):**  
   Store and access data offline for better reliability.  

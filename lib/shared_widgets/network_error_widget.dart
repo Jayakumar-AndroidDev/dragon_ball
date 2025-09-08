@@ -3,9 +3,10 @@ import 'package:dragon_ball_app/core/util/util.dart';
 import 'package:flutter/material.dart';
 
 class NetworkErrorWidget extends StatelessWidget {
-  const NetworkErrorWidget({super.key,required this.onTap,});
+  const NetworkErrorWidget({super.key,required this.onTap,this.errorMessage = "Please check your internet connection!"});
 
   final Function() onTap;
+  final String errorMessage;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +23,7 @@ class NetworkErrorWidget extends StatelessWidget {
           ),
         ),
         Util.heightSpace(10),
-        Text("Please check your internet connection!",style: TextStyle(
+        Text(errorMessage,style: TextStyle(
                 fontFamily: "mozila",
                 fontWeight: FontWeight.w600,
                 fontSize: 13,

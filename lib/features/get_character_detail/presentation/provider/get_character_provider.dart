@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:dragon_ball_app/features/get_character_detail/data/data_source/get_character_api.dart';
 import 'package:dragon_ball_app/features/get_character_detail/data/repository/get_character_repository_impl.dart';
 import 'package:dragon_ball_app/features/get_character_detail/domain/entity/character_entity.dart';
@@ -19,8 +18,13 @@ class GetCharacterProvider extends AsyncNotifier<CharacterEntity?> {
         getCharacterApi: GetCharacterApi(ref: ref),
       ),
     );
-    final getCharacter = getCharacterUsecase.getCharacter(charactedId);
-    state = await AsyncValue.guard(() => getCharacter,);
+    final getCharacter = await getCharacterUsecase.getCharacter(charactedId);
+
+   state = getCharacter.fold((success) {
+      return AsyncData(success);
+    }, (failure) {
+      return AsyncError(failure, StackTrace.current);
+    },);
   }
 }
 

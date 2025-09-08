@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:dragon_ball_app/core/network/api_client.dart';
 import 'package:dragon_ball_app/core/network/api_client_provider.dart';
 import 'package:dragon_ball_app/features/home/data/model/characters_model.dart';
@@ -9,6 +11,7 @@ class GetCharactersApi {
 
   Future<CharactersModel> getCharacters(String pageNumber) async {
     ApiClient apiClient = ref.read(apiClientProvider);
+    
    final response = await apiClient.get("characters?page=$pageNumber");
    return CharactersModel.fromJson(response);
   }

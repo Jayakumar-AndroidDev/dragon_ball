@@ -1,12 +1,13 @@
 import 'package:dragon_ball_app/features/home/domain/entity/characters_entity.dart';
 import 'package:dragon_ball_app/features/home/domain/repository/character_repository.dart';
+import 'package:result_dart/result_dart.dart';
 
 class CharacterUsecase {
   CharactersRepository charactersRepository;
 
   CharacterUsecase({required this.charactersRepository});
 
-  Future<List<CharactersEntity>> getCharacters(String pageNumber) async {
+  Future<Result<List<CharactersEntity>>> getCharacters(String pageNumber) async {
     final characters = await charactersRepository.getCharaters(pageNumber);
     return characters;
   }

@@ -4,4 +4,5 @@ class AppText {
       "Discover legendary warriors and epic worlds. From Goku to Frieza, Earth to Namek—every hero, villain, and planet awaits your journey!";
 
   static const String noMoreTxt = "No more character...!";
+  static const String defaultApiErrorMessage = "Unable to get data";
 }
